@@ -70,11 +70,11 @@
       <!-- Modal -->
       <div id="productModal" ref="productModal" class="modal fade" tabindex="-1" aria-labelledby="productModalLabel"
            aria-hidden="true">
-        <product-modal :new-product="newProduct" @get-products="getProduct"></product-modal>
+        <product-modal :new-product="newProduct" @get-product="getProduct"></product-modal>
       </div>
-      <div id="delProductModal" ref="delProductModal" class="modal fade" tabindex="-1"
+      <div id="delProductModal" ref="delProductModal" class="modal fade" tabindex="-1" 
            aria-labelledby="delProductModalLabel" aria-hidden="true">
-        <del-product-modal :del-product="newProduct" @get-items="getProduct"></del-product-modal>
+        <del-product-modal :del-product="newProduct" @get-product="getProduct"></del-product-modal>
       </div>
       <!-- Modal -->
     </div>
@@ -175,7 +175,7 @@
           </div>
         </div>
     </script>
-    <script type="text/x-template" id="delTheProduct">
+    <script type="text/x-template" id="delProduct">
       <div class="modal-dialog">
         <div class="modal-content border-0">
           <div class="modal-header bg-danger text-white">

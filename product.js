@@ -12,7 +12,7 @@ let delProductModal={};
 
 const app=createApp({
     components:{
-        pagination,delProductModal
+        pagination
     },
     data(){
         return{
@@ -73,6 +73,7 @@ const app=createApp({
             }
             
         },
+        
     },
     mounted(){
         this.checkLogin();
@@ -98,7 +99,7 @@ app.component('productModal',{
                 console.log(res);
                 //this.getProduct(); 沒有getProduct,因為這是外層的方法
                 //用emit觸發外層方法
-                this.$emit('get-products');
+                this.$emit('get-product');
                 productModal.hide();
             })
             .catch(err=>{
@@ -109,18 +110,20 @@ app.component('productModal',{
 });
 app.component('delProductModal',{
     props:['delProduct'],
-    template:'#delTheProduct',
+    template:'#delProduct',
     methods:{
-        delProductModal(){
+       delProductModal(){
             let url=`${site}api/${path}/admin/product/${this.newProduct.id}`;
             axios.delete(url)
             .then(res=>{
                 console.log(res);
                 //this.getProduct();沒有getProduct,因為這是外層的方法
-                this.$emit('get-items');
+                this.$emit('get-product');
                 delProductModal.hide();
             })
-        }
-    }
-})
+        },
+    },
+});
+
+
 app.mount('#app');
