@@ -104,23 +104,23 @@ app.component('productModal',{
             })
             .catch(err=>{
                 console.log(err);
-            })
+            });
         },
     }
 });
 app.component('delProductModal',{
-    props:['delProduct'],
-    template:'#delProduct',
+    props:['delProducts'],
+    template:'#templateForDelProduct',
     methods:{
-       delProductModal(){
+       delProduct(){
             let url=`${site}api/${path}/admin/product/${this.newProduct.id}`;
             axios.delete(url)
             .then(res=>{
                 console.log(res);
                 //this.getProduct();沒有getProduct,因為這是外層的方法
-                this.$emit('get-product');
+                //this.$emit('get-items');
                 delProductModal.hide();
-            })
+            });
         },
     },
 });

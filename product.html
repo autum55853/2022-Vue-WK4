@@ -74,7 +74,7 @@
       </div>
       <div id="delProductModal" ref="delProductModal" class="modal fade" tabindex="-1" 
            aria-labelledby="delProductModalLabel" aria-hidden="true">
-        <del-product-modal :del-product="newProduct" @get-product="getProduct"></del-product-modal>
+        <del-product-modal :del-products="newProduct" ></del-product-modal>
       </div>
       <!-- Modal -->
     </div>
@@ -175,7 +175,7 @@
           </div>
         </div>
     </script>
-    <script type="text/x-template" id="delProduct">
+    <script type="text/x-template" id="templateForDelProduct">
       <div class="modal-dialog">
         <div class="modal-content border-0">
           <div class="modal-header bg-danger text-white">
@@ -192,7 +192,7 @@
             <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
               取消
             </button>
-            <button type="button" class="btn btn-danger" @click="delProduct()">
+            <button type="button" class="btn btn-danger" @click="delProduct">
               確認刪除
             </button>
           </div>
