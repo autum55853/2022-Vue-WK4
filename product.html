@@ -74,7 +74,7 @@
       </div>
       <div id="delProductModal" ref="delProductModal" class="modal fade" tabindex="-1" 
            aria-labelledby="delProductModalLabel" aria-hidden="true">
-        <del-product-modal :del-products="newProduct" ></del-product-modal>
+        <del-product-modal :del-products="newProduct" @get-product="getProduct"></del-product-modal>
       </div>
       <!-- Modal -->
     </div>
@@ -186,7 +186,7 @@
           </div>
           <div class="modal-body">
             是否刪除
-            <strong class="text-danger">{{ newProduct.title }}</strong> 商品(刪除後將無法恢復)。
+            <strong class="text-danger">{{ delProducts.title }}</strong> 商品(刪除後將無法恢復)。
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">

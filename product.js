@@ -91,10 +91,10 @@ app.component('productModal',{
             let url=`${site}api/${path}/admin/product`;
             let method='post';
             if(!this.isNew){
-                url=`${site}api/${path}/admin/product/${this.newProduct.id}`;
+                url=`${site}api/${path}/admin/product/${this.id}`;
                 method='put';
             }
-            axios[method](url, { data:this.newProduct }) //使用[]帶入變數、要注意post的資料格式
+            axios[method](url, { data:this }) //使用[]帶入變數、要注意post的資料格式
             .then(res=>{
                 console.log(res);
                 //this.getProduct(); 沒有getProduct,因為這是外層的方法
@@ -104,6 +104,7 @@ app.component('productModal',{
             })
             .catch(err=>{
                 console.log(err);
+                alert('發生未知的錯誤');
             });
         },
     }
@@ -118,7 +119,7 @@ app.component('delProductModal',{
             .then(res=>{
                 console.log(res);
                 //this.getProduct();沒有getProduct,因為這是外層的方法
-                //this.$emit('get-items');
+                this.$emit('get-product');
                 delProductModal.hide();
             });
         },
